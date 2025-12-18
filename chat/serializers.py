@@ -1,9 +1,7 @@
-# serializers.py
 from rest_framework import serializers
+from .models import ChatEntry
 
-class ChatInputSerializer(serializers.Serializer):
-    message = serializers.CharField(
-        required=True,
-        allow_blank=False, 
-        max_length=2000
-    )
+class ChatEntrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChatEntry
+        fields = ['id', 'question', 'answer']
